@@ -1,0 +1,909 @@
+/* ========================================================= */
+/* ===================== GENERAL PAGE ====================== */
+/* ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f4f8fb;
+
+    color: #173047;
+
+    margin: 0;
+
+}
+
+
+/* ========================================================= */
+/* ===================== NAVIGATION ======================== */
+/* ========================================================= */
+
+.navbar {
+
+    display: flex;
+
+    align-items: center;
+
+    background-color: #0b2338;
+
+    color: white;
+
+    padding: 18px 50px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-sizing: border-box;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.nav-links a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+}
+
+
+.nav-links a:hover {
+
+    color: #27a2ff;
+
+}
+
+
+/* ========================================================= */
+/* ====================== HERO SECTION ===================== */
+/* ========================================================= */
+
+.hero {
+
+    min-height: 500px;
+
+    background-color: #0b2338;
+
+    color: white;
+
+    padding: 50px 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+
+    box-sizing: border-box;
+
+}
+
+
+.hero-content {
+
+    flex: 1;
+
+}
+
+
+.hero-image {
+
+    flex: 1;
+
+}
+
+
+.hero-image img {
+
+    width: 100%;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+}
+
+
+.eyebrow {
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+
+}
+
+
+.hero h1 {
+
+    font-size: 52px;
+
+    margin: 15px 0;
+
+}
+
+
+.hero h2 {
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+}
+
+
+.hero p {
+
+    color: white;
+
+    line-height: 1.6;
+
+}
+/* ========================================================= */
+/* ===================== ABOUT SECTION ===================== */
+/* ========================================================= */
+
+.about {
+
+    background-color: white;
+
+    padding: 60px;
+
+    margin: 20px 0;
+
+    border-radius: 12px;
+
+    border: 1px solid #dbe6ee;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 60px;
+
+}
+
+
+/* Left side */
+
+.about-image {
+
+    flex: 1;
+
+}
+
+
+/* About image */
+
+.about-image img {
+
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+}
+
+
+/* Right side */
+
+.about-content {
+
+    flex: 1;
+
+}
+
+
+/* Small section label */
+
+.section-label {
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+
+    color: #27a2ff;
+
+}
+
+
+/* About heading */
+
+.about-content h2 {
+
+    font-size: 38px;
+
+    color: #0b2338;
+
+    margin: 15px 0;
+
+}
+
+
+/* About paragraphs */
+
+.about-content p {
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #607386;
+
+}
+
+
+/* ========================================================= */
+/* ===================== COMMON SECTIONS =================== */
+/* ========================================================= */
+
+.about,
+.research,
+.projects,
+.skills,
+.education,
+.contact {
+
+    background-color: white;
+
+    padding: 60px;
+
+    margin: 20px 0;
+
+    border-radius: 12px;
+
+    border: 1px solid #dbe6ee;
+
+}
+
+
+.about p,
+.research p,
+.projects p,
+.skills p,
+.education p,
+.contact p {
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: #607386;
+
+}
+
+/* ========================================================= */
+/* ===================== RESEARCH SECTION ================== */
+/* ========================================================= */
+
+.research {
+
+    padding: 60px;
+
+}
+
+
+/* Research introduction */
+
+.research-intro {
+
+    max-width: 850px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #607386;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* Research cards container */
+
+.research-container {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+/* Individual research card */
+
+.research-card {
+
+    flex: 1;
+
+    background-color: #f8fbfd;
+
+    padding: 25px;
+
+    border: 1px solid #dbe6ee;
+
+    border-radius: 12px;
+
+    transition: 0.2s;
+
+}
+
+
+/* Hover effect */
+
+.research-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+/* Research card heading */
+
+.research-card h3 {
+
+    font-size: 20px;
+
+    color: #0b2338;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* Research card paragraph */
+
+.research-card p {
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #607386;
+
+}
+/* ========================================================= */
+/* ===================== PROJECT CARDS ===================== */
+/* ========================================================= */
+
+.project-container {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+.project-card {
+
+    flex: 1;
+
+    background-color: white;
+
+    padding: 25px;
+
+    border: 1px solid #dbe6ee;
+
+    border-radius: 12px;
+
+    transition: 0.2s;
+
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.project-card h3 {
+
+    font-size: 20px;
+
+    color: #0b2338;
+
+    margin-bottom: 10px;
+
+}
+
+
+.project-card p {
+
+    font-size: 15px;
+
+    color: #607386;
+
+}
+/* ========================================================= */
+/* ================= PROJECT LINKS ========================= */
+/* ========================================================= */
+
+.project-link {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: #0b83e6;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+.project-link:hover {
+
+    color: #0b2338;
+
+}
+/* ========================================================= */
+/* ===================== SKILLS SECTION =================== */
+/* ========================================================= */
+
+.skills {
+    padding: 60px;
+}
+
+.skills-intro {
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #607386;
+    margin-bottom: 35px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.skill-card {
+    background-color: #f8fbfd;
+    padding: 25px;
+    border: 1px solid #dbe6ee;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card h3 {
+    font-size: 20px;
+    color: #0b2338;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 15px;
+    color: #607386;
+}
+/* ========================================================= */
+/* ================= EDUCATION SECTION ==================== */
+/* ========================================================= */
+
+.education {
+    padding: 60px;
+}
+
+.education-container {
+    max-width: 900px;
+    margin-top: 35px;
+}
+
+.education-card {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    background-color: #f8fbfd;
+    border: 1px solid #dbe6ee;
+    border-radius: 12px;
+}
+
+.education-year {
+    min-width: 120px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0b83e6;
+}
+
+.education-content h3 {
+    font-size: 22px;
+    color: #0b2338;
+    margin: 0 0 10px;
+}
+
+.education-content h4 {
+    font-size: 18px;
+    color: #607386;
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+.education-content p {
+    font-size: 16px;
+    color: #607386;
+    margin: 0;
+}
+
+/* ========================================================= */
+/* ===================== MOBILE DESIGN ==================== */
+/* ========================================================= */
+
+@media (max-width: 700px) {
+        .skills {
+        padding: 20px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+        .education {
+        padding: 20px;
+    }
+
+    .education-card {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .education-year {
+        min-width: auto;
+    }
+
+
+    /* ---------- NAVIGATION ---------- */
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 15px 20px;
+
+    }
+
+
+    .nav-links {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+
+        flex-direction: column;
+
+        padding: 50px 25px;
+
+    }
+
+
+    .hero-content {
+
+        width: 100%;
+
+    }
+
+
+    .hero-image {
+
+        width: 100%;
+
+    }
+
+
+    .hero-image img {
+
+        height: 250px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 42px;
+
+    }
+
+
+    .hero h2 {
+
+        font-size: 22px;
+
+    }
+        /* ---------- RESEARCH ---------- */
+
+    .research {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .research-container {
+
+        flex-direction: column;
+
+    }
+
+
+    /* ---------- PROJECTS ---------- */
+
+    .project-container {
+
+        flex-direction: column;
+
+    }
+
+
+    /* ---------- SECTIONS ---------- */
+
+    .about,
+    .projects,
+    .research,
+    .skills,
+    .education,
+    .contact {
+
+        padding: 20px;
+
+    }
+
+}
+/* ========================================================= */
+/* =================== CONTACT SECTION ==================== */
+/* ========================================================= */
+
+.contact {
+    padding: 60px;
+    text-align: center;
+}
+
+.contact-intro {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #607386;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    display: inline-block;
+    padding: 12px 22px;
+    background-color: #0b2338;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.contact-links a:hover {
+    background-color: #0b83e6;
+}
+/* ========================================================= */
+/* ====================== FOOTER ========================== */
+/* ========================================================= */
+
+.footer {
+    background-color: #0b2338;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer p:last-child {
+    color: #aebdca;
+}
+/* ========================================================= */
+/* ====================== CV BUTTON ======================== */
+/* ========================================================= */
+
+.cv-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 25px;
+    background-color: #27a2ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.cv-button:hover {
+    background-color: white;
+    color: #0b2338;
+}
+/* ========================================================= */
+/* ==================== HERO BUTTONS ====================== */
+/* ========================================================= */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 240px;
+    height: 55px;
+
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+
+    transition: 0.2s;
+}
+
+.cv-button {
+    background-color: #27a2ff;
+    color: white;
+}
+
+.cv-button:hover {
+    background-color: white;
+    color: #0b2338;
+}
+
+.research-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.research-button:hover {
+    background-color: white;
+    color: #0b2338;
+}
+/* ========================================================= */
+/* =================== PROJECTS SECTION =================== */
+/* ========================================================= */
+
+.projects {
+    padding: 60px;
+}
+
+.projects-intro {
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #607386;
+    margin-bottom: 35px;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background-color: #f8fbfd;
+    padding: 30px;
+    border: 1px solid #dbe6ee;
+    border-radius: 12px;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #27a2ff;
+}
+
+.project-category {
+    font-size: 12px !important;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #27a2ff !important;
+    margin-bottom: 12px;
+}
+
+.project-card h3 {
+    font-size: 22px;
+    color: #0b2338;
+    margin: 0 0 12px;
+}
+
+.project-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #607386;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.project-tags span {
+    display: inline-block;
+    padding: 6px 10px;
+    background-color: white;
+    border: 1px solid #dbe6ee;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #607386;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 22px;
+    color: #0b83e6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-link:hover {
+    color: #0b2338;
+}
