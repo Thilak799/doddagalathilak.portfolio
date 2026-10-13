@@ -1,55 +1,358 @@
 
-<section class="assignment-section">
-    <p class="section-label">ASSIGNMENT 01 · RASTER ANALYSIS</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <h2>Spatio-Temporal Analysis of Building Volume Changes in Nagpur (2000–2020)</h2>
+    <title>Raster Assignments | Thilak Doddagala</title>
 
-    <p>
-        This project analyses the spatial distribution and temporal
-        changes in building volume in Nagpur between 2000 and 2020
-        using GHSL Building Volume data.
-    </p>
+    <meta name="description"
+          content="Raster analysis assignments, including spatio-temporal building-volume change analysis in Nagpur, India.">
 
-    <h3>Key Outputs</h3>
+    <link rel="stylesheet" href="../style.css">
 
-    <ul>
-        <li>Building volume maps for 2000 and 2020</li>
-        <li>Building volume change map for 2000–2020</li>
-        <li>Five-year building-volume animation</li>
-        <li>Time-series visualization of building volume</li>
-        <li>CSV files containing building-volume results</li>
-    </ul>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <h3>Visual Results</h3>
+        body {
+            margin: 0;
+            background: #f5f7fa;
+            color: #243247;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
 
-    <img
-        src="assignments/nagpur-building-volume/Nagpur_Building_Volume_TimeSeries.png"
-        alt="Nagpur building volume time-series analysis"
-        class="project-page-image"
-    >
+        .page-header {
+            background: #102b46;
+            color: white;
+            padding: 48px 20px;
+        }
 
-    <p>
-        <a href="assignments/nagpur-building-volume/Nagpur_Building_Volume_2000_2020.gif"
-           class="assignment-link"
-           target="_blank">
-            View Building Volume Animation →
-        </a>
-    </p>
+        .page-header-inner,
+        main,
+        .page-footer {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
 
-    <p>
-        <a href="assignments/nagpur-building-volume/Nagpur_Building_Volume_Change_2000_2020.html"
-           class="assignment-link"
-           target="_blank">
-            View Building Volume Change Map →
-        </a>
-    </p>
+        .page-header .eyebrow {
+            color: #83d8cc;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-    <p>
-        <a href="assignments/nagpur-building-volume/Nagpur_Final_Building_Volume_Results.csv"
-           class="assignment-link"
-           target="_blank">
-            View Final Results (CSV) →
-        </a>
-    </p>
+        .page-header h1 {
+            margin: 12px 0;
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.2;
+        }
 
-</section>
+        .page-header p {
+            max-width: 720px;
+            color: #d6e3ef;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 14px;
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid #83d8cc;
+        }
+
+        main {
+            padding-top: 36px;
+            padding-bottom: 50px;
+        }
+
+        .section-label {
+            color: #147d82;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+        }
+
+        .assignment-card {
+            margin-top: 18px;
+            padding: clamp(20px, 4vw, 38px);
+            background: #ffffff;
+            border: 1px solid #e0e6ed;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(16, 43, 70, 0.06);
+        }
+
+        .assignment-card h2 {
+            margin: 8px 0 16px;
+            color: #102b46;
+            font-size: clamp(24px, 4vw, 34px);
+            line-height: 1.3;
+        }
+
+        .assignment-card h3 {
+            margin-top: 30px;
+            color: #102b46;
+        }
+
+        .outputs {
+            padding-left: 22px;
+        }
+
+        .outputs li {
+            padding: 3px 0;
+        }
+
+        .dashboard-button {
+            display: inline-block;
+            margin: 18px 0 8px;
+            padding: 13px 22px;
+            background: #117d80;
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .dashboard-button:hover {
+            background: #0b6265;
+        }
+
+        .image-frame {
+            margin-top: 18px;
+            padding: 12px;
+            background: #f8fafc;
+            border: 1px solid #e0e6ed;
+            border-radius: 12px;
+        }
+
+        .project-page-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .resource {
+            display: block;
+            padding: 18px;
+            background: #f8fafc;
+            border: 1px solid #e0e6ed;
+            border-radius: 10px;
+            color: #145f80;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .resource span {
+            display: block;
+            margin-top: 5px;
+            color: #657487;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .resource:hover {
+            border-color: #117d80;
+            background: #f0fbfa;
+        }
+
+        .note {
+            margin-top: 24px;
+            padding: 16px 18px;
+            background: #fff8e8;
+            border-left: 4px solid #d7a33b;
+            border-radius: 0 8px 8px 0;
+            color: #65552f;
+            font-size: 14px;
+        }
+
+        .page-footer {
+            padding: 22px 0 30px;
+            border-top: 1px solid #dce3ea;
+            color: #687789;
+            font-size: 13px;
+        }
+
+        @media (max-width: 650px) {
+            .page-header {
+                padding: 34px 0;
+            }
+
+            .resource-list {
+                grid-template-columns: 1fr;
+            }
+
+            .assignment-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <p class="eyebrow">Urban Informatics &amp; Spatial Analytics</p>
+
+            <h1>Raster Analysis Assignments</h1>
+
+            <p>
+                Geospatial analysis and visualization of spatial patterns,
+                temporal changes, and urban development using raster data.
+            </p>
+
+            <a class="back-link" href="../index.html">
+                ← Back to Main Portfolio
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="assignment-card">
+
+            <p class="section-label">
+                ASSIGNMENT 01 · RASTER ANALYSIS
+            </p>
+
+            <h2>
+                Spatio-Temporal Analysis of Building Volume Changes
+                in Nagpur (2000–2020)
+            </h2>
+
+            <p>
+                This project analyses the spatial distribution and
+                temporal changes in building volume in Nagpur, India,
+                between 2000 and 2020 using GHSL Building Volume data.
+                The analysis includes five-year observations, a change
+                map, a time-series visualization, and building-volume
+                results.
+            </p>
+
+            <a
+                href="../nagpur-building-volume/"
+                class="dashboard-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Open Complete Nagpur Dashboard →
+            </a>
+
+            <h3>Key Outputs</h3>
+
+            <ul class="outputs">
+                <li>Building-volume maps for 2000 and 2020</li>
+                <li>Building-volume change map for 2000–2020</li>
+                <li>Five-year building-volume animation</li>
+                <li>Time-series visualization of building volume</li>
+                <li>CSV files containing building-volume results</li>
+                <li>Spatial identification of building-volume changes</li>
+            </ul>
+
+            <h3>Visual Results</h3>
+
+            <div class="image-frame">
+                <img
+                    src="../nagpur-building-volume/Nagpur_Building_Volume_TimeSeries.png"
+                    alt="Nagpur building-volume time-series analysis from 2000 to 2020"
+                    class="project-page-image"
+                >
+            </div>
+
+            <h3>Explore Assignment Files</h3>
+
+            <div class="resource-list">
+
+                <a
+                    href="../nagpur-building-volume/Nagpur_Building_Volume_2000_2020.gif"
+                    class="resource"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Building-Volume Animation →
+                    <span>Explore changes over time.</span>
+                </a>
+
+                <a
+                    href="../nagpur-building-volume/Nagpur_Building_Volume_Change_2000_2020.html"
+                    class="resource"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Building-Volume Change Map →
+                    <span>Inspect the mapped changes from 2000 to 2020.</span>
+                </a>
+
+                <a
+                    href="../nagpur-building-volume/Nagpur_Building_Volume_2000.html"
+                    class="resource"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Building Volume — 2000 →
+                    <span>Open the 2000 building-volume map.</span>
+                </a>
+
+                <a
+                    href="../nagpur-building-volume/Nagpur_Building_Volume_2020.html"
+                    class="resource"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Building Volume — 2020 →
+                    <span>Open the 2020 building-volume map.</span>
+                </a>
+
+                <a
+                    href="../nagpur-building-volume/Nagpur_Final_Building_Volume_Results.csv"
+                    class="resource"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Final Results (CSV) →
+                    <span>Access the exported building-volume results.</span>
+                </a>
+
+                <a
+                    href="../nagpur-building-volume/Nagpur_Top_10_Building_Volume_Increases.csv"
+                    class="resource"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Top 10% Building-Volume Increases →
+                    <span>Open the exported increase results.</span>
+                </a>
+
+            </div>
+
+            <div class="note">
+                <strong>Data consistency note:</strong>
+                The totals shown on the supplied maps differ from the
+                supplied CSV totals. These values should be checked
+                against the source rasters and aggregation method before
+                being reported as validated city totals.
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="page-footer">
+        Raster Analysis Assignment · Nagpur, Maharashtra, India · 2000–2020
+    </footer>
+
+</body>
+</html>
