@@ -1,103 +1,474 @@
+
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mapping Waste Bins in the Area</title>
+
+<title>Waste-Bin Mapping | Urban Informatics</title>
+<meta name="description" content="Interactive GIS map of 42 surveyed waste-bin locations, with location details and spatial visualization.">
+
 <style>
-:root{
-  --bg:#080d16;--panel:#101a27;--line:rgba(148,163,184,.22);
-  --text:#f3f7fc;--muted:#a8b7c9;--mint:#2de0b2;--blue:#49baff;
+:root {
+  --bg: #080d16;
+  --panel: #101a27;
+  --line: rgba(148, 163, 184, 0.22);
+  --text: #f3f7fc;
+  --muted: #a8b7c9;
+  --mint: #2de0b2;
+  --blue: #49baff;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:
-  radial-gradient(900px 500px at 10% -15%,rgba(45,224,178,.13),transparent 65%),
-  radial-gradient(850px 500px at 100% 0%,rgba(73,186,255,.13),transparent 60%),
-  var(--bg);
-  color:var(--text);font:16px/1.55 "Segoe UI",Arial,sans-serif;
+
+* {
+  box-sizing: border-box;
 }
-.page{width:min(1400px,100%);margin:auto;padding:32px clamp(16px,4vw,56px) 40px}
-.topline{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:34px}
-.brand{display:flex;align-items:center;gap:12px;font-size:.88rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:#c8d6e6}
-.logo{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,var(--mint),var(--blue));color:#07111c;box-shadow:0 8px 28px #2de0b226}
-.logo svg{width:25px;height:25px}
-.top-tag{color:var(--muted);font-size:.9rem}
-.hero{padding:clamp(12px,3vw,32px) 0 28px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--mint);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-.eyebrow:before{content:"";width:24px;height:2px;background:var(--mint);border-radius:2px}
-h1{font-size:clamp(2.5rem,6.5vw,5.5rem);line-height:.99;letter-spacing:-.055em;max-width:1000px;margin:18px 0 16px}
-h1 span{background:linear-gradient(95deg,var(--mint),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
-.intro{max-width:720px;margin:0;color:var(--muted);font-size:clamp(1rem,2vw,1.15rem)}
-.map-section{margin-top:24px}
-.map-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:15px}
-.map-heading{margin:0;font-size:1.2rem;letter-spacing:-.02em}
-.map-caption{color:var(--muted);font-size:.9rem;margin:5px 0 0}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
-.action{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:.9rem;font-weight:700;text-decoration:none;transition:transform .18s,border-color .18s}
-.action:hover{transform:translateY(-2px);border-color:var(--mint)}
-.action.primary{background:linear-gradient(110deg,#143c39,#13344a);border-color:#2de0b254}
-.action svg{width:17px;height:17px;flex:none}
-.map-frame{padding:8px;background:linear-gradient(135deg,rgba(45,224,178,.32),rgba(73,186,255,.22));border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.3)}
-iframe{display:block;width:100%;height:min(76vh,820px);min-height:520px;border:0;border-radius:15px;background:#0b1220}
-.hint{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:.88rem;margin:14px 2px 0}
-.hint svg{width:18px;height:18px;flex:none;color:var(--mint);margin-top:2px}
-footer{border-top:1px solid var(--line);margin-top:32px;padding-top:18px;color:#8294a9;font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:650px){
- .page{padding-top:18px}.topline{align-items:flex-start;margin-bottom:24px}.top-tag{max-width:125px;text-align:right}
- .map-head{align-items:stretch}.actions{width:100%}.action{flex:1;justify-content:center}
- iframe{min-height:480px;height:68vh}.map-frame{padding:5px;border-radius:16px}iframe{border-radius:12px}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 500px at 10% -15%,
+      rgba(45, 224, 178, 0.13), transparent 65%),
+    radial-gradient(850px 500px at 100% 0%,
+      rgba(73, 186, 255, 0.13), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font: 16px/1.55 "Segoe UI", Arial, sans-serif;
+}
+
+.page {
+  width: min(1400px, 100%);
+  margin: auto;
+  padding: 32px clamp(16px, 4vw, 56px) 40px;
+}
+
+.topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c8d6e6;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--mint), var(--blue));
+  color: #07111c;
+  box-shadow: 0 8px 28px #2de0b226;
+}
+
+.logo svg {
+  width: 25px;
+  height: 25px;
+}
+
+.top-tag {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hero {
+  padding: clamp(12px, 3vw, 32px) 0 28px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--mint);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--mint);
+  border-radius: 2px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+  line-height: 0.99;
+  letter-spacing: -0.055em;
+  max-width: 1000px;
+  margin: 18px 0 16px;
+}
+
+h1 span {
+  background: linear-gradient(95deg, var(--mint), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+/* Summary statistic */
+
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 260px;
+  padding: 17px 22px;
+  border: 1px solid rgba(45, 224, 178, 0.28);
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 224, 178, 0.10),
+    rgba(73, 186, 255, 0.08)
+  );
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+.stat-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: rgba(45, 224, 178, 0.13);
+  font-size: 26px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 850;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Map section */
+
+.map-section {
+  margin-top: 30px;
+}
+
+.map-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.map-heading {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.map-caption {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 5px 0 0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s, border-color 0.18s;
+}
+
+.action:hover {
+  transform: translateY(-2px);
+  border-color: var(--mint);
+}
+
+.action.primary {
+  background: linear-gradient(110deg, #143c39, #13344a);
+  border-color: #2de0b254;
+}
+
+.action svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+}
+
+.map-frame {
+  padding: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 224, 178, 0.32),
+    rgba(73, 186, 255, 0.22)
+  );
+  border-radius: 22px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  height: min(76vh, 820px);
+  min-height: 520px;
+  border: 0;
+  border-radius: 15px;
+  background: #0b1220;
+}
+
+.hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 14px 2px 0;
+}
+
+.hint svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--mint);
+  margin-top: 2px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  padding-top: 18px;
+  color: #8294a9;
+  font-size: 0.82rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 650px) {
+  .page {
+    padding-top: 18px;
+  }
+
+  .topline {
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .top-tag {
+    max-width: 145px;
+    text-align: right;
+  }
+
+  .stat-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .map-head {
+    align-items: stretch;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .action {
+    flex: 1;
+  }
+
+  .map-frame {
+    padding: 5px;
+    border-radius: 16px;
+  }
+
+  iframe {
+    min-height: 480px;
+    height: 68vh;
+    border-radius: 12px;
+  }
 }
 </style>
 </head>
+
 <body>
 <div class="page">
+
   <header>
     <div class="topline">
+
       <div class="brand">
         <span class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="2"
+               stroke-linecap="round"
+               stroke-linejoin="round">
             <path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/>
           </svg>
         </span>
+
         <span>Area Mapping</span>
       </div>
-      <div class="top-tag">Urban Informatics &amp; Spatial Analytics</div>
+
+      <div class="top-tag">
+        Urban Informatics &amp; Spatial Analytics
+      </div>
+
     </div>
+
     <div class="hero">
-      <div class="eyebrow">Interactive field map</div>
-      <h1>Mapping <span>waste bins</span><br>in the area</h1>
-      <p class="intro">Explore the mapped waste-bin locations using the interactive map below.</p>
+
+      <div class="eyebrow">Interactive GIS field map</div>
+
+      <h1>
+        Mapping <span>waste bins</span><br>
+        in the area
+      </h1>
+
+      <p class="intro">
+        Explore surveyed waste-bin locations, inspect individual
+        points, and navigate through the interactive GIS map.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-card">
+
+          <span class="stat-icon" aria-hidden="true">♻</span>
+
+          <span>
+            <strong class="stat-number">42</strong>
+            <span class="stat-label">
+              Waste-bin locations mapped
+            </span>
+          </span>
+
+        </div>
+      </div>
+
     </div>
   </header>
 
   <main class="map-section">
+
     <div class="map-head">
+
       <div>
         <h2 class="map-heading">Waste-bin locations</h2>
-        <p class="map-caption">Select a map marker to view its recorded details.</p>
+
+        <p class="map-caption">
+          Explore the mapped points and select a marker to inspect
+          its recorded details.
+        </p>
       </div>
+
       <div class="actions">
-        <a class="action primary" href="waste_bin_map.html" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        <a
+          class="action primary"
+          href="waste_bin_map.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.8"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
+            <path d="M14 3h7v7M21 3l-9 9"/>
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          </svg>
           Open full map
         </a>
       </div>
+
     </div>
+
     <div class="map-frame">
-      <iframe src="waste_bin_map.html" title="Interactive waste-bin location map" loading="lazy" allowfullscreen></iframe>
+      <iframe
+        src="waste_bin_map.html"
+        title="Interactive waste-bin location map"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
     </div>
+
     <p class="hint">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg>
-      Use the map controls to zoom, change the basemap if available, and select individual markers for location information.
+      <svg viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="1.8"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 11v5M12 7h.01"/>
+      </svg>
+
+      Use the map controls to zoom, switch basemaps, and select
+      individual markers to view their recorded location details.
     </p>
+
   </main>
 
   <footer>
-    <span>Mapping Waste Bins in the Area</span>
+    <span>Waste-Bin Mapping · GIS Portfolio Project</span>
     <span>Interactive map · Field observations</span>
   </footer>
+
 </div>
 </body>
 </html>
