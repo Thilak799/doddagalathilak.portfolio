@@ -1,0 +1,2309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_806a668f43f299af77c8f7e8002ac070 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+</head>
+<body>
+    
+    
+<div style="position:fixed;top:12px;left:56px;z-index:9999;background:rgba(20,24,38,.92);color:#fff;padding:10px 16px;
+ border-radius:12px;font:14px 'Segoe UI',Arial;box-shadow:0 4px 16px #0006;max-width:340px">
+ <b style="font-size:15px">Waste-bin observations - Urban Informatics field survey</b><br>
+ <span style="font-size:12px;opacity:.85">42 waste bins · data collected by <b>D Thilak</b> (CE25M404)</span><br>
+ <span style="font-size:12px;opacity:.85">Map created by <b>D Thilak</b> (CE25M404)</span><br>
+ <span style="font-size:11px;opacity:.7">Click a marker for details.</span>
+</div>
+    
+            <div class="folium-map" id="map_806a668f43f299af77c8f7e8002ac070" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_806a668f43f299af77c8f7e8002ac070 = L.map(
+                "map_806a668f43f299af77c8f7e8002ac070",
+                {
+                    center: [13.71269187717765, 79.59074833379744],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_806a668f43f299af77c8f7e8002ac070);
+
+            
+
+        
+    
+            var tile_layer_5fe9f5261198040f74217db43a3e1941 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5fe9f5261198040f74217db43a3e1941.addTo(map_806a668f43f299af77c8f7e8002ac070);
+        
+    
+            var tile_layer_4a10c92e703b4239fd6b15e8b49af641 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 16,
+  "maxNativeZoom": 16,
+  "noWrap": false,
+  "attribution": "Tiles \u00a9 Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4a10c92e703b4239fd6b15e8b49af641.addTo(map_806a668f43f299af77c8f7e8002ac070);
+        
+    
+            var tile_layer_2624db781045de09f437cc40d22f589e = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "Tiles \u00a9 Esri \u2014 Esri, Maxar, Earthstar Geographics",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2624db781045de09f437cc40d22f589e.addTo(map_806a668f43f299af77c8f7e8002ac070);
+        
+    
+            var feature_group_5715dcb149436ada171fe2c334b08d20 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_9ca8191670d4efe3cb3c5fce662a3820 = L.markerClusterGroup(
+                {
+  "disableClusteringAtZoom": 17,
+}
+            );
+        
+    
+            var marker_b1b96fa89302234652c2e51c5978237b = L.marker(
+                [13.715800000000002, 79.59186833333334],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_f69d171aaa4ec478f9c73233c156b81b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_471f75b39258f63dbbd8f4450c19f06c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba78af2066c346ee233df52b797c3e61 = $(`<div id="html_ba78af2066c346ee233df52b797c3e61" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Before ab1</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 09:55:14.011000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.715800, 79.591868</td></tr></table></div></div>`)[0];
+                popup_471f75b39258f63dbbd8f4450c19f06c.setContent(html_ba78af2066c346ee233df52b797c3e61);
+            
+        
+
+        marker_b1b96fa89302234652c2e51c5978237b.bindPopup(popup_471f75b39258f63dbbd8f4450c19f06c)
+        ;
+
+        
+    
+    
+            marker_b1b96fa89302234652c2e51c5978237b.bindTooltip(
+                `<div>
+                     <b>Before ab1</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b1b96fa89302234652c2e51c5978237b.setIcon(icon_f69d171aaa4ec478f9c73233c156b81b);
+            
+    
+            var marker_cf736a0aa23726c7080fadfdce904190 = L.marker(
+                [13.713441666666665, 79.59346000000001],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_856e08fdaaddff19f124e388549accd9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b781a5462acedbd821a908b9e0b385af = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37859dcc01ef43639637cf89568d1f75 = $(`<div id="html_37859dcc01ef43639637cf89568d1f75" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near admin</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 09:57:20.653000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.713442, 79.593460</td></tr></table></div></div>`)[0];
+                popup_b781a5462acedbd821a908b9e0b385af.setContent(html_37859dcc01ef43639637cf89568d1f75);
+            
+        
+
+        marker_cf736a0aa23726c7080fadfdce904190.bindPopup(popup_b781a5462acedbd821a908b9e0b385af)
+        ;
+
+        
+    
+    
+            marker_cf736a0aa23726c7080fadfdce904190.bindTooltip(
+                `<div>
+                     <b>Near admin</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cf736a0aa23726c7080fadfdce904190.setIcon(icon_856e08fdaaddff19f124e388549accd9);
+            
+    
+            var marker_077e66232df0318fdd54202db2aa1345 = L.marker(
+                [13.714576666666662, 79.594325],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_9529f02a16b10179b7198aa7b80e269e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a29c6248d56f2985a6eab2053d111323 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cbab0955baaaf31d53156d8db6f82776 = $(`<div id="html_cbab0955baaaf31d53156d8db6f82776" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>In front of admin</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 09:59:59.807000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.714577, 79.594325</td></tr></table></div></div>`)[0];
+                popup_a29c6248d56f2985a6eab2053d111323.setContent(html_cbab0955baaaf31d53156d8db6f82776);
+            
+        
+
+        marker_077e66232df0318fdd54202db2aa1345.bindPopup(popup_a29c6248d56f2985a6eab2053d111323)
+        ;
+
+        
+    
+    
+            marker_077e66232df0318fdd54202db2aa1345.bindTooltip(
+                `<div>
+                     <b>In front of admin</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_077e66232df0318fdd54202db2aa1345.setIcon(icon_9529f02a16b10179b7198aa7b80e269e);
+            
+    
+            var marker_693c1acfe7684ac46079432d6ef7c6b2 = L.marker(
+                [13.712163333333335, 79.59238833333335],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_4a3b83fdb4ddeee77fa1e4f3ff477cfb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_113d24ae6e3717d410c8ec6e7d2e445a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1cbee4d9333d46d9d24cc1a78c17160c = $(`<div id="html_1cbee4d9333d46d9d24cc1a78c17160c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>At security room near roundabout</div><div style='font-size:13px;margin:6px 0'>Full</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:03:38.611000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.712163, 79.592388</td></tr></table></div></div>`)[0];
+                popup_113d24ae6e3717d410c8ec6e7d2e445a.setContent(html_1cbee4d9333d46d9d24cc1a78c17160c);
+            
+        
+
+        marker_693c1acfe7684ac46079432d6ef7c6b2.bindPopup(popup_113d24ae6e3717d410c8ec6e7d2e445a)
+        ;
+
+        
+    
+    
+            marker_693c1acfe7684ac46079432d6ef7c6b2.bindTooltip(
+                `<div>
+                     <b>At security room near roundabout</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_693c1acfe7684ac46079432d6ef7c6b2.setIcon(icon_4a3b83fdb4ddeee77fa1e4f3ff477cfb);
+            
+    
+            var marker_cf83cc42bd28014dcf8bda1a85c58f71 = L.marker(
+                [13.711086666666665, 79.59232333333333],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_cc90223ef6f11e83fc559a7f4e237cc2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b6c133d4ff06224ca42dc05dbc37f593 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_016d37077a0a567e41fe6d865834f07c = $(`<div id="html_016d37077a0a567e41fe6d865834f07c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>On the way to indoor</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:04:42.669000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.711087, 79.592323</td></tr></table></div></div>`)[0];
+                popup_b6c133d4ff06224ca42dc05dbc37f593.setContent(html_016d37077a0a567e41fe6d865834f07c);
+            
+        
+
+        marker_cf83cc42bd28014dcf8bda1a85c58f71.bindPopup(popup_b6c133d4ff06224ca42dc05dbc37f593)
+        ;
+
+        
+    
+    
+            marker_cf83cc42bd28014dcf8bda1a85c58f71.bindTooltip(
+                `<div>
+                     <b>On the way to indoor</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cf83cc42bd28014dcf8bda1a85c58f71.setIcon(icon_cc90223ef6f11e83fc559a7f4e237cc2);
+            
+    
+            var marker_1e9677d72640067cf1ad8471f06f8de2 = L.marker(
+                [13.709869999999999, 79.59235],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_f78d1919353ab30f069c35b92127d83e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5a6b6dc3b91b94dcfb04fcd7bee3dc0a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_975f8bbc314ab2ab111458eda6301c02 = $(`<div id="html_975f8bbc314ab2ab111458eda6301c02" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near indoor busstand</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:06:23.102000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.709870, 79.592350</td></tr></table></div></div>`)[0];
+                popup_5a6b6dc3b91b94dcfb04fcd7bee3dc0a.setContent(html_975f8bbc314ab2ab111458eda6301c02);
+            
+        
+
+        marker_1e9677d72640067cf1ad8471f06f8de2.bindPopup(popup_5a6b6dc3b91b94dcfb04fcd7bee3dc0a)
+        ;
+
+        
+    
+    
+            marker_1e9677d72640067cf1ad8471f06f8de2.bindTooltip(
+                `<div>
+                     <b>Near indoor busstand</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1e9677d72640067cf1ad8471f06f8de2.setIcon(icon_f78d1919353ab30f069c35b92127d83e);
+            
+    
+            var marker_6faca252aa0dce6888f6c2a59b608e41 = L.marker(
+                [13.708338333333332, 79.592665],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_c759ecd7a2a4075b6765a1520c2897e2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e9644384a9792e7623bf8b945086c97 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91502eb5e3e5b84113925b80414ead48 = $(`<div id="html_91502eb5e3e5b84113925b80414ead48" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near faculty quarters</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:08:35.428000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.708338, 79.592665</td></tr></table></div></div>`)[0];
+                popup_7e9644384a9792e7623bf8b945086c97.setContent(html_91502eb5e3e5b84113925b80414ead48);
+            
+        
+
+        marker_6faca252aa0dce6888f6c2a59b608e41.bindPopup(popup_7e9644384a9792e7623bf8b945086c97)
+        ;
+
+        
+    
+    
+            marker_6faca252aa0dce6888f6c2a59b608e41.bindTooltip(
+                `<div>
+                     <b>Near faculty quarters</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6faca252aa0dce6888f6c2a59b608e41.setIcon(icon_c759ecd7a2a4075b6765a1520c2897e2);
+            
+    
+            var marker_078d18259ebf4b8df2907aeffaeb89b9 = L.marker(
+                [13.70742666666666, 79.59284833333331],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_f1d5d9b3253def6dbb93b6b44e1848f7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_29f14d669b02ba7812429c0192b8c6c0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b8c9806fcae0678a6906423f5dfd3ca = $(`<div id="html_3b8c9806fcae0678a6906423f5dfd3ca" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near fruit shop</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:10:36.835000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.707427, 79.592848</td></tr></table></div></div>`)[0];
+                popup_29f14d669b02ba7812429c0192b8c6c0.setContent(html_3b8c9806fcae0678a6906423f5dfd3ca);
+            
+        
+
+        marker_078d18259ebf4b8df2907aeffaeb89b9.bindPopup(popup_29f14d669b02ba7812429c0192b8c6c0)
+        ;
+
+        
+    
+    
+            marker_078d18259ebf4b8df2907aeffaeb89b9.bindTooltip(
+                `<div>
+                     <b>Near fruit shop</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_078d18259ebf4b8df2907aeffaeb89b9.setIcon(icon_f1d5d9b3253def6dbb93b6b44e1848f7);
+            
+    
+            var marker_43e2e881d476e1b70c93515a364d706a = L.marker(
+                [13.707355, 79.59291833333333],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_7008ac8e0936bdf3ddc6782f59a750a7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3149b80eec573aa018f82defe5ddc7d6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7ba33bbe199552cf0804890cd77d12e = $(`<div id="html_a7ba33bbe199552cf0804890cd77d12e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Right side of fruit shop</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:12:44.706000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.707355, 79.592918</td></tr></table></div></div>`)[0];
+                popup_3149b80eec573aa018f82defe5ddc7d6.setContent(html_a7ba33bbe199552cf0804890cd77d12e);
+            
+        
+
+        marker_43e2e881d476e1b70c93515a364d706a.bindPopup(popup_3149b80eec573aa018f82defe5ddc7d6)
+        ;
+
+        
+    
+    
+            marker_43e2e881d476e1b70c93515a364d706a.bindTooltip(
+                `<div>
+                     <b>Right side of fruit shop</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_43e2e881d476e1b70c93515a364d706a.setIcon(icon_7008ac8e0936bdf3ddc6782f59a750a7);
+            
+    
+            var marker_7d139353a90214966430d6695616e089 = L.marker(
+                [13.70741333333333, 79.59294333333332],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_b18c6d78b12aab8c5a6319a63e8b97b7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_495dc05a0030fc8086f6c3443230733e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a42695d4977053caa70703d9c6415f4 = $(`<div id="html_8a42695d4977053caa70703d9c6415f4" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Infront of left side fruit shop</div><div style='font-size:13px;margin:6px 0'><i>No field note</i></div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:14:34.807000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.707413, 79.592943</td></tr></table></div></div>`)[0];
+                popup_495dc05a0030fc8086f6c3443230733e.setContent(html_8a42695d4977053caa70703d9c6415f4);
+            
+        
+
+        marker_7d139353a90214966430d6695616e089.bindPopup(popup_495dc05a0030fc8086f6c3443230733e)
+        ;
+
+        
+    
+    
+            marker_7d139353a90214966430d6695616e089.bindTooltip(
+                `<div>
+                     <b>Infront of left side fruit shop</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7d139353a90214966430d6695616e089.setIcon(icon_b18c6d78b12aab8c5a6319a63e8b97b7);
+            
+    
+            var marker_436d004dad44a05408f31cbf584596b1 = L.marker(
+                [13.707176666666665, 79.59281166666666],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_f9ca800d8ffdc0cf529bdcef27e98dc5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a81dbed32ed532ce3aa668106fac477c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4fecb2cac668c852b29ea96c5025ecd7 = $(`<div id="html_4fecb2cac668c852b29ea96c5025ecd7" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near school</div><div style='font-size:13px;margin:6px 0'>Partially filled</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:16:19.140000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.707177, 79.592812</td></tr></table></div></div>`)[0];
+                popup_a81dbed32ed532ce3aa668106fac477c.setContent(html_4fecb2cac668c852b29ea96c5025ecd7);
+            
+        
+
+        marker_436d004dad44a05408f31cbf584596b1.bindPopup(popup_a81dbed32ed532ce3aa668106fac477c)
+        ;
+
+        
+    
+    
+            marker_436d004dad44a05408f31cbf584596b1.bindTooltip(
+                `<div>
+                     <b>Near school</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_436d004dad44a05408f31cbf584596b1.setIcon(icon_f9ca800d8ffdc0cf529bdcef27e98dc5);
+            
+    
+            var marker_3dd8c3a266a4fd84dc15f329d9ec6d39 = L.marker(
+                [13.706645, 79.59445999999997],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_6f0479cb3585956d66480d3bd0f80ab2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_544062e33106e38675253932f14e89f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fb78746640f770e630076516fe70ee8a = $(`<div id="html_fb78746640f770e630076516fe70ee8a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Infront of TC-1</div><div style='font-size:13px;margin:6px 0'>Partially filled</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:19:08.225000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.706645, 79.594460</td></tr></table></div></div>`)[0];
+                popup_544062e33106e38675253932f14e89f6.setContent(html_fb78746640f770e630076516fe70ee8a);
+            
+        
+
+        marker_3dd8c3a266a4fd84dc15f329d9ec6d39.bindPopup(popup_544062e33106e38675253932f14e89f6)
+        ;
+
+        
+    
+    
+            marker_3dd8c3a266a4fd84dc15f329d9ec6d39.bindTooltip(
+                `<div>
+                     <b>Infront of TC-1</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3dd8c3a266a4fd84dc15f329d9ec6d39.setIcon(icon_6f0479cb3585956d66480d3bd0f80ab2);
+            
+    
+            var marker_6425660925d0979af7472ea381ae23d4 = L.marker(
+                [13.707128333333335, 79.59449166666664],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_c84b5261e811789cc03760c54c598b8e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_83a9b6e099e70085e212ccbd06e36177 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a6298962ecfa296c8280164b43dc521f = $(`<div id="html_a6298962ecfa296c8280164b43dc521f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near mess</div><div style='font-size:13px;margin:6px 0'>Partially filled</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:21:59.078000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.707128, 79.594492</td></tr></table></div></div>`)[0];
+                popup_83a9b6e099e70085e212ccbd06e36177.setContent(html_a6298962ecfa296c8280164b43dc521f);
+            
+        
+
+        marker_6425660925d0979af7472ea381ae23d4.bindPopup(popup_83a9b6e099e70085e212ccbd06e36177)
+        ;
+
+        
+    
+    
+            marker_6425660925d0979af7472ea381ae23d4.bindTooltip(
+                `<div>
+                     <b>Near mess</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6425660925d0979af7472ea381ae23d4.setIcon(icon_c84b5261e811789cc03760c54c598b8e);
+            
+    
+            var marker_b4deff4d99146194e0dc9f76fa05792f = L.marker(
+                [13.707689999999994, 79.59438999999998],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_bc6b6d00afc3b629cbfd792bb6359e6d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb431af3a8ef5d0a798232832732b886 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_337038cbaa293eb2e444fd0a6f16f05f = $(`<div id="html_337038cbaa293eb2e444fd0a6f16f05f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Infront of sahana</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:22:57.211000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.707690, 79.594390</td></tr></table></div></div>`)[0];
+                popup_eb431af3a8ef5d0a798232832732b886.setContent(html_337038cbaa293eb2e444fd0a6f16f05f);
+            
+        
+
+        marker_b4deff4d99146194e0dc9f76fa05792f.bindPopup(popup_eb431af3a8ef5d0a798232832732b886)
+        ;
+
+        
+    
+    
+            marker_b4deff4d99146194e0dc9f76fa05792f.bindTooltip(
+                `<div>
+                     <b>Infront of sahana</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b4deff4d99146194e0dc9f76fa05792f.setIcon(icon_bc6b6d00afc3b629cbfd792bb6359e6d);
+            
+    
+            var marker_e0426f8f82c575108c4d48085fdd89a0 = L.marker(
+                [13.708153333333332, 79.5948533333333],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_f0f1d69c82a78183807dae16402dcf35 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ca1a01ebeb67566dc34c8b824a71f48 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d99b0c591145c9b458fff1a29510cbd = $(`<div id="html_4d99b0c591145c9b458fff1a29510cbd" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>South cafeteria</div><div style='font-size:13px;margin:6px 0'><i>No field note</i></div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:26:16.777000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.708153, 79.594853</td></tr></table></div></div>`)[0];
+                popup_4ca1a01ebeb67566dc34c8b824a71f48.setContent(html_4d99b0c591145c9b458fff1a29510cbd);
+            
+        
+
+        marker_e0426f8f82c575108c4d48085fdd89a0.bindPopup(popup_4ca1a01ebeb67566dc34c8b824a71f48)
+        ;
+
+        
+    
+    
+            marker_e0426f8f82c575108c4d48085fdd89a0.bindTooltip(
+                `<div>
+                     <b>South cafeteria</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e0426f8f82c575108c4d48085fdd89a0.setIcon(icon_f0f1d69c82a78183807dae16402dcf35);
+            
+    
+            var marker_ff33a0375d9ee267060fa7bcd6ec39f9 = L.marker(
+                [13.708074874794722, 79.59489051949242],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_f9eb293073fe7a886f055fc3be32052d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0287ca5da66cd3c66e8431da97eb0831 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f703beebd9ae58fdd1cf9e2715abb2f = $(`<div id="html_5f703beebd9ae58fdd1cf9e2715abb2f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near South cafeteria</div><div style='font-size:13px;margin:6px 0'>Full</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:28:31.431000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.708075, 79.594891</td></tr></table></div></div>`)[0];
+                popup_0287ca5da66cd3c66e8431da97eb0831.setContent(html_5f703beebd9ae58fdd1cf9e2715abb2f);
+            
+        
+
+        marker_ff33a0375d9ee267060fa7bcd6ec39f9.bindPopup(popup_0287ca5da66cd3c66e8431da97eb0831)
+        ;
+
+        
+    
+    
+            marker_ff33a0375d9ee267060fa7bcd6ec39f9.bindTooltip(
+                `<div>
+                     <b>Near South cafeteria</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ff33a0375d9ee267060fa7bcd6ec39f9.setIcon(icon_f9eb293073fe7a886f055fc3be32052d);
+            
+    
+            var marker_02de2d58c15689cd2f19d166ecbac078 = L.marker(
+                [13.70822166666667, 79.59486000000001],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_12f90c77478a94525d50f6109904bb71 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41fb3cd386e27d39ebe6b1202e266d0d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_135cb195cd508cce0e17f7947b5ef8fe = $(`<div id="html_135cb195cd508cce0e17f7947b5ef8fe" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Backside of sahana</div><div style='font-size:13px;margin:6px 0'>Partially filled</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:30:38.595000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.708222, 79.594860</td></tr></table></div></div>`)[0];
+                popup_41fb3cd386e27d39ebe6b1202e266d0d.setContent(html_135cb195cd508cce0e17f7947b5ef8fe);
+            
+        
+
+        marker_02de2d58c15689cd2f19d166ecbac078.bindPopup(popup_41fb3cd386e27d39ebe6b1202e266d0d)
+        ;
+
+        
+    
+    
+            marker_02de2d58c15689cd2f19d166ecbac078.bindTooltip(
+                `<div>
+                     <b>Backside of sahana</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_02de2d58c15689cd2f19d166ecbac078.setIcon(icon_12f90c77478a94525d50f6109904bb71);
+            
+    
+            var marker_b5b1478d226f4b4a9597a9778bddba08 = L.marker(
+                [13.708871666666669, 79.59392999999999],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_f05edba381248225b0cf509a2109ce8c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5cdc5235c2167422259bf1c362a3162c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_21f743f089d00fe15b9c7ef11047ff70 = $(`<div id="html_21f743f089d00fe15b9c7ef11047ff70" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near South hostels</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:35:37.092000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.708872, 79.593930</td></tr></table></div></div>`)[0];
+                popup_5cdc5235c2167422259bf1c362a3162c.setContent(html_21f743f089d00fe15b9c7ef11047ff70);
+            
+        
+
+        marker_b5b1478d226f4b4a9597a9778bddba08.bindPopup(popup_5cdc5235c2167422259bf1c362a3162c)
+        ;
+
+        
+    
+    
+            marker_b5b1478d226f4b4a9597a9778bddba08.bindTooltip(
+                `<div>
+                     <b>Near South hostels</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b5b1478d226f4b4a9597a9778bddba08.setIcon(icon_f05edba381248225b0cf509a2109ce8c);
+            
+    
+            var marker_31e5537deb9095fce1eba9d16c7b7bfc = L.marker(
+                [13.709391666666665, 79.59327333333334],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_7e796520e96f7f77db732bb6c00cb4b1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_76c3f8c659cfdde18d282e50160e959e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d2df049e85cd7bdbae44fbe403a520c = $(`<div id="html_8d2df049e85cd7bdbae44fbe403a520c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near ground</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:37:50.808000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.709392, 79.593273</td></tr></table></div></div>`)[0];
+                popup_76c3f8c659cfdde18d282e50160e959e.setContent(html_8d2df049e85cd7bdbae44fbe403a520c);
+            
+        
+
+        marker_31e5537deb9095fce1eba9d16c7b7bfc.bindPopup(popup_76c3f8c659cfdde18d282e50160e959e)
+        ;
+
+        
+    
+    
+            marker_31e5537deb9095fce1eba9d16c7b7bfc.bindTooltip(
+                `<div>
+                     <b>Near ground</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_31e5537deb9095fce1eba9d16c7b7bfc.setIcon(icon_7e796520e96f7f77db732bb6c00cb4b1);
+            
+    
+            var marker_e4828ba41628a7f02f2cb3f188b77fcb = L.marker(
+                [13.709983333333327, 79.593165],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_93f1a360c82d1420fc335843b06b2d6c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68cd8c3cd0ee3f19675022b120235287 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a9e6e83ed61ae738b3dc16860498b329 = $(`<div id="html_a9e6e83ed61ae738b3dc16860498b329" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Infront of indoor</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:38:59.513000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.709983, 79.593165</td></tr></table></div></div>`)[0];
+                popup_68cd8c3cd0ee3f19675022b120235287.setContent(html_a9e6e83ed61ae738b3dc16860498b329);
+            
+        
+
+        marker_e4828ba41628a7f02f2cb3f188b77fcb.bindPopup(popup_68cd8c3cd0ee3f19675022b120235287)
+        ;
+
+        
+    
+    
+            marker_e4828ba41628a7f02f2cb3f188b77fcb.bindTooltip(
+                `<div>
+                     <b>Infront of indoor</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e4828ba41628a7f02f2cb3f188b77fcb.setIcon(icon_93f1a360c82d1420fc335843b06b2d6c);
+            
+    
+            var marker_f11b0fb4d51603112cb65e2e35c7fa9d = L.marker(
+                [13.716981666666666, 79.59173166666666],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_31a32aceec823d26a2ed5d052fc24547 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_311226d0a8bbb7946fdf9a8224fc5216 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c3091bfcf97d7c380835da7db873c04 = $(`<div id="html_0c3091bfcf97d7c380835da7db873c04" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near CPWD office</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:55:39.937000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.716982, 79.591732</td></tr></table></div></div>`)[0];
+                popup_311226d0a8bbb7946fdf9a8224fc5216.setContent(html_0c3091bfcf97d7c380835da7db873c04);
+            
+        
+
+        marker_f11b0fb4d51603112cb65e2e35c7fa9d.bindPopup(popup_311226d0a8bbb7946fdf9a8224fc5216)
+        ;
+
+        
+    
+    
+            marker_f11b0fb4d51603112cb65e2e35c7fa9d.bindTooltip(
+                `<div>
+                     <b>Near CPWD office</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f11b0fb4d51603112cb65e2e35c7fa9d.setIcon(icon_31a32aceec823d26a2ed5d052fc24547);
+            
+    
+            var marker_1e20094c14d2ec0a741657e9e6b9247d = L.marker(
+                [13.717235000000002, 79.594935],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_b61a6059611190fb2328e8d14d5a0cfa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ce324187bba488e551f4b86c3377463b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b314c5764f72819358ecf4ce830030a = $(`<div id="html_2b314c5764f72819358ecf4ce830030a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near stp plant</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 10:57:57.690000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.717235, 79.594935</td></tr></table></div></div>`)[0];
+                popup_ce324187bba488e551f4b86c3377463b.setContent(html_2b314c5764f72819358ecf4ce830030a);
+            
+        
+
+        marker_1e20094c14d2ec0a741657e9e6b9247d.bindPopup(popup_ce324187bba488e551f4b86c3377463b)
+        ;
+
+        
+    
+    
+            marker_1e20094c14d2ec0a741657e9e6b9247d.bindTooltip(
+                `<div>
+                     <b>Near stp plant</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1e20094c14d2ec0a741657e9e6b9247d.setIcon(icon_b61a6059611190fb2328e8d14d5a0cfa);
+            
+    
+            var marker_f5ec8fa5c6d40e2885f6d68dce5532ee = L.marker(
+                [13.717986666666663, 79.58713499999999],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_d11aecf888aa4c0b50f0b0fda142afa5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_31e3dd18439d4dc635bcd655c4100e4f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_40c82886c1143705ccd42d08fb29b6ac = $(`<div id="html_40c82886c1143705ccd42d08fb29b6ac" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Malhar and des</div><div style='font-size:13px;margin:6px 0'>Nill</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:03:09.723000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.717987, 79.587135</td></tr></table></div></div>`)[0];
+                popup_31e3dd18439d4dc635bcd655c4100e4f.setContent(html_40c82886c1143705ccd42d08fb29b6ac);
+            
+        
+
+        marker_f5ec8fa5c6d40e2885f6d68dce5532ee.bindPopup(popup_31e3dd18439d4dc635bcd655c4100e4f)
+        ;
+
+        
+    
+    
+            marker_f5ec8fa5c6d40e2885f6d68dce5532ee.bindTooltip(
+                `<div>
+                     <b>Malhar and des</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f5ec8fa5c6d40e2885f6d68dce5532ee.setIcon(icon_d11aecf888aa4c0b50f0b0fda142afa5);
+            
+    
+            var marker_ea50095a10fca6f3e977bc5f2cb02f98 = L.marker(
+                [13.717729999999996, 79.58744666666665],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_263a8940adcc07e4e1d0f0a642b7c3b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_615edcddb567a0901ff4e13c408bb219 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_34e5a1ba6b57ffc1f00627bff382040b = $(`<div id="html_34e5a1ba6b57ffc1f00627bff382040b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Before malhar</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:04:58.727000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.717730, 79.587447</td></tr></table></div></div>`)[0];
+                popup_615edcddb567a0901ff4e13c408bb219.setContent(html_34e5a1ba6b57ffc1f00627bff382040b);
+            
+        
+
+        marker_ea50095a10fca6f3e977bc5f2cb02f98.bindPopup(popup_615edcddb567a0901ff4e13c408bb219)
+        ;
+
+        
+    
+    
+            marker_ea50095a10fca6f3e977bc5f2cb02f98.bindTooltip(
+                `<div>
+                     <b>Before malhar</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ea50095a10fca6f3e977bc5f2cb02f98.setIcon(icon_263a8940adcc07e4e1d0f0a642b7c3b0);
+            
+    
+            var marker_0d94f47cc71ee93209da2c8de93e30db = L.marker(
+                [13.717606666666665, 79.58694999999996],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_3bef977160544e31868745f14fd45103 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2b36191814cdf0a686f1557e338339d3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d52d67859fcbbad78db04eb10b4fe45f = $(`<div id="html_d52d67859fcbbad78db04eb10b4fe45f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Before des</div><div style='font-size:13px;margin:6px 0'>Full</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:06:44.993000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.717607, 79.586950</td></tr></table></div></div>`)[0];
+                popup_2b36191814cdf0a686f1557e338339d3.setContent(html_d52d67859fcbbad78db04eb10b4fe45f);
+            
+        
+
+        marker_0d94f47cc71ee93209da2c8de93e30db.bindPopup(popup_2b36191814cdf0a686f1557e338339d3)
+        ;
+
+        
+    
+    
+            marker_0d94f47cc71ee93209da2c8de93e30db.bindTooltip(
+                `<div>
+                     <b>Before des</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0d94f47cc71ee93209da2c8de93e30db.setIcon(icon_3bef977160544e31868745f14fd45103);
+            
+    
+            var marker_e9926de95b65714c81712726989a8c05 = L.marker(
+                [13.717308333333333, 79.58648],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_5f18c9540911daad5286b8de844e9f4b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e5dea351dc22d6ae251749e9e40fa161 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_00fa1e3d29561f2fcf3471d610b0552b = $(`<div id="html_00fa1e3d29561f2fcf3471d610b0552b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'></div><div style='font-size:13px;margin:6px 0'><i>No field note</i></div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:07:49.602000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.717308, 79.586480</td></tr></table></div></div>`)[0];
+                popup_e5dea351dc22d6ae251749e9e40fa161.setContent(html_00fa1e3d29561f2fcf3471d610b0552b);
+            
+        
+
+        marker_e9926de95b65714c81712726989a8c05.bindPopup(popup_e5dea351dc22d6ae251749e9e40fa161)
+        ;
+
+        
+    
+    
+            marker_e9926de95b65714c81712726989a8c05.bindTooltip(
+                `<div>
+                     <b></b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e9926de95b65714c81712726989a8c05.setIcon(icon_5f18c9540911daad5286b8de844e9f4b);
+            
+    
+            var marker_b1d98bdc45176c04db2e1d5021a090ca = L.marker(
+                [13.717308333333333, 79.58648],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_5bc3d460f546f30dc67926a9f8a22a74 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e8ef4f7c0e55a26dd79a4b86eb7af7ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22d80f83bcc96dff87a72b05fbced8bb = $(`<div id="html_22d80f83bcc96dff87a72b05fbced8bb" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Beside des</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:07:55.358000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.717308, 79.586480</td></tr></table></div></div>`)[0];
+                popup_e8ef4f7c0e55a26dd79a4b86eb7af7ee.setContent(html_22d80f83bcc96dff87a72b05fbced8bb);
+            
+        
+
+        marker_b1d98bdc45176c04db2e1d5021a090ca.bindPopup(popup_e8ef4f7c0e55a26dd79a4b86eb7af7ee)
+        ;
+
+        
+    
+    
+            marker_b1d98bdc45176c04db2e1d5021a090ca.bindTooltip(
+                `<div>
+                     <b>Beside des</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b1d98bdc45176c04db2e1d5021a090ca.setIcon(icon_5bc3d460f546f30dc67926a9f8a22a74);
+            
+    
+            var marker_c202a03c81b87467ec32eb2a794ab9b7 = L.marker(
+                [13.716510000000003, 79.58613666666666],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_76ef612ec5d5f9b74de985e869194ace = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ce84935a16a6e022bd6673b63497f73c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ebda691a77961d13ad2e8173db6ba6d5 = $(`<div id="html_ebda691a77961d13ad2e8173db6ba6d5" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Backside mess</div><div style='font-size:13px;margin:6px 0'>Nik</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:08:41.295000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.716510, 79.586137</td></tr></table></div></div>`)[0];
+                popup_ce84935a16a6e022bd6673b63497f73c.setContent(html_ebda691a77961d13ad2e8173db6ba6d5);
+            
+        
+
+        marker_c202a03c81b87467ec32eb2a794ab9b7.bindPopup(popup_ce84935a16a6e022bd6673b63497f73c)
+        ;
+
+        
+    
+    
+            marker_c202a03c81b87467ec32eb2a794ab9b7.bindTooltip(
+                `<div>
+                     <b>Backside mess</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c202a03c81b87467ec32eb2a794ab9b7.setIcon(icon_76ef612ec5d5f9b74de985e869194ace);
+            
+    
+            var marker_5bd41264c005a697f176ab97497dcb58 = L.marker(
+                [13.717046666666665, 79.58712666666665],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_d2e78a2a4f8098c05c1ee47e931d9260 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b836c7a4308b7c858bc95845ae9ab6b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b42b1d28f589eba103926e15b26f807e = $(`<div id="html_b42b1d28f589eba103926e15b26f807e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Before north mess</div><div style='font-size:13px;margin:6px 0'>Partially filled</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:30:18.797000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.717047, 79.587127</td></tr></table></div></div>`)[0];
+                popup_b836c7a4308b7c858bc95845ae9ab6b4.setContent(html_b42b1d28f589eba103926e15b26f807e);
+            
+        
+
+        marker_5bd41264c005a697f176ab97497dcb58.bindPopup(popup_b836c7a4308b7c858bc95845ae9ab6b4)
+        ;
+
+        
+    
+    
+            marker_5bd41264c005a697f176ab97497dcb58.bindTooltip(
+                `<div>
+                     <b>Before north mess</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5bd41264c005a697f176ab97497dcb58.setIcon(icon_d2e78a2a4f8098c05c1ee47e931d9260);
+            
+    
+            var marker_708122e8ca8a3200a585003825e313f5 = L.marker(
+                [13.717133333333338, 79.58718333333333],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_64b4f48f626116b28bc21e50ccb1534e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eea77772c0714bea2a926fcaffde6dab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c0f3405bd73722cb1014d975117bdbc = $(`<div id="html_3c0f3405bd73722cb1014d975117bdbc" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>North OAT</div><div style='font-size:13px;margin:6px 0'>Full</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:31:13.492000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.717133, 79.587183</td></tr></table></div></div>`)[0];
+                popup_eea77772c0714bea2a926fcaffde6dab.setContent(html_3c0f3405bd73722cb1014d975117bdbc);
+            
+        
+
+        marker_708122e8ca8a3200a585003825e313f5.bindPopup(popup_eea77772c0714bea2a926fcaffde6dab)
+        ;
+
+        
+    
+    
+            marker_708122e8ca8a3200a585003825e313f5.bindTooltip(
+                `<div>
+                     <b>North OAT</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_708122e8ca8a3200a585003825e313f5.setIcon(icon_64b4f48f626116b28bc21e50ccb1534e);
+            
+    
+            var marker_001ef38740cbc37d344a9fedc149cd93 = L.marker(
+                [13.714808899999996, 79.5863117],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_1f5663654c231c6dc9a054e2351dd906 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0fb7d4198c7dd07bf3fd325c34270df5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_94bcc20babf523b61c7737cc8797165a = $(`<div id="html_94bcc20babf523b61c7737cc8797165a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Infront of sports utility building</div><div style='font-size:13px;margin:6px 0'>Nik</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:34:14.780000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.714809, 79.586312</td></tr></table></div></div>`)[0];
+                popup_0fb7d4198c7dd07bf3fd325c34270df5.setContent(html_94bcc20babf523b61c7737cc8797165a);
+            
+        
+
+        marker_001ef38740cbc37d344a9fedc149cd93.bindPopup(popup_0fb7d4198c7dd07bf3fd325c34270df5)
+        ;
+
+        
+    
+    
+            marker_001ef38740cbc37d344a9fedc149cd93.bindTooltip(
+                `<div>
+                     <b>Infront of sports utility building</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_001ef38740cbc37d344a9fedc149cd93.setIcon(icon_1f5663654c231c6dc9a054e2351dd906);
+            
+    
+            var marker_9940440dc1ccd4a7dc0452a5798a1dbe = L.marker(
+                [13.714810599999998, 79.5863151],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_237628ec631eae4c2d2efd95355233de = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16348832b5418cf62655d4187ea7169c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_87a91a5938c002c9fd9727c0e4f8de60 = $(`<div id="html_87a91a5938c002c9fd9727c0e4f8de60" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>In sports utility building</div><div style='font-size:13px;margin:6px 0'>Partially filled</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:35:43.472000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.714811, 79.586315</td></tr></table></div></div>`)[0];
+                popup_16348832b5418cf62655d4187ea7169c.setContent(html_87a91a5938c002c9fd9727c0e4f8de60);
+            
+        
+
+        marker_9940440dc1ccd4a7dc0452a5798a1dbe.bindPopup(popup_16348832b5418cf62655d4187ea7169c)
+        ;
+
+        
+    
+    
+            marker_9940440dc1ccd4a7dc0452a5798a1dbe.bindTooltip(
+                `<div>
+                     <b>In sports utility building</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9940440dc1ccd4a7dc0452a5798a1dbe.setIcon(icon_237628ec631eae4c2d2efd95355233de);
+            
+    
+            var marker_8a7ac8fc7f4f4e9c24bacadb4017f07d = L.marker(
+                [13.714834999999997, 79.586465],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_ffceb7f35eb1649dfafbb9b7510a1ed2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_254b10efaa621ada958ce8ea4919e287 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bd1fb4600ce1751ffa25b59d0643ac8d = $(`<div id="html_bd1fb4600ce1751ffa25b59d0643ac8d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Infront of lawn tennis courts</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:37:46.335000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.714835, 79.586465</td></tr></table></div></div>`)[0];
+                popup_254b10efaa621ada958ce8ea4919e287.setContent(html_bd1fb4600ce1751ffa25b59d0643ac8d);
+            
+        
+
+        marker_8a7ac8fc7f4f4e9c24bacadb4017f07d.bindPopup(popup_254b10efaa621ada958ce8ea4919e287)
+        ;
+
+        
+    
+    
+            marker_8a7ac8fc7f4f4e9c24bacadb4017f07d.bindTooltip(
+                `<div>
+                     <b>Infront of lawn tennis courts</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8a7ac8fc7f4f4e9c24bacadb4017f07d.setIcon(icon_ffceb7f35eb1649dfafbb9b7510a1ed2);
+            
+    
+            var marker_adde5dbaa458510fc18a8ca82ce2cf0a = L.marker(
+                [13.714028333333333, 79.58685666666663],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_05b6ad2dd5c8070bfb0e99e17c1dd444 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_97c8dcc7101518dbe75fbecd9fd3f821 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d274a6dd776efc0806f41303a9502c19 = $(`<div id="html_d274a6dd776efc0806f41303a9502c19" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Beside lawn tennis</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:38:46.879000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.714028, 79.586857</td></tr></table></div></div>`)[0];
+                popup_97c8dcc7101518dbe75fbecd9fd3f821.setContent(html_d274a6dd776efc0806f41303a9502c19);
+            
+        
+
+        marker_adde5dbaa458510fc18a8ca82ce2cf0a.bindPopup(popup_97c8dcc7101518dbe75fbecd9fd3f821)
+        ;
+
+        
+    
+    
+            marker_adde5dbaa458510fc18a8ca82ce2cf0a.bindTooltip(
+                `<div>
+                     <b>Beside lawn tennis</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_adde5dbaa458510fc18a8ca82ce2cf0a.setIcon(icon_05b6ad2dd5c8070bfb0e99e17c1dd444);
+            
+    
+            var marker_441822238d7fc85a24ea8fa5af273360 = L.marker(
+                [13.712808333333328, 79.58810333333334],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_a9e2af9fc412b12c682cf98a9f8d635e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9c4605263d251c027be4d2cd04c4bad5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da6b446e4cbedd0ea05a9f518c52ed26 = $(`<div id="html_da6b446e4cbedd0ea05a9f518c52ed26" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near visitors hostel</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:40:16.794000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.712808, 79.588103</td></tr></table></div></div>`)[0];
+                popup_9c4605263d251c027be4d2cd04c4bad5.setContent(html_da6b446e4cbedd0ea05a9f518c52ed26);
+            
+        
+
+        marker_441822238d7fc85a24ea8fa5af273360.bindPopup(popup_9c4605263d251c027be4d2cd04c4bad5)
+        ;
+
+        
+    
+    
+            marker_441822238d7fc85a24ea8fa5af273360.bindTooltip(
+                `<div>
+                     <b>Near visitors hostel</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_441822238d7fc85a24ea8fa5af273360.setIcon(icon_a9e2af9fc412b12c682cf98a9f8d635e);
+            
+    
+            var marker_645ee2dafd2e24e69b8c08ba3499c15a = L.marker(
+                [13.712126666666663, 79.58798166666665],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_beb9d9d19ca6f7758e34223c8e443d4f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e2ebdf40c8b00c15fb7b2113dd6d9d9a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f4dbcf827e4b839623d4563926299f4 = $(`<div id="html_1f4dbcf827e4b839623d4563926299f4" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Infront of visitors hostel</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:41:20.056000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.712127, 79.587982</td></tr></table></div></div>`)[0];
+                popup_e2ebdf40c8b00c15fb7b2113dd6d9d9a.setContent(html_1f4dbcf827e4b839623d4563926299f4);
+            
+        
+
+        marker_645ee2dafd2e24e69b8c08ba3499c15a.bindPopup(popup_e2ebdf40c8b00c15fb7b2113dd6d9d9a)
+        ;
+
+        
+    
+    
+            marker_645ee2dafd2e24e69b8c08ba3499c15a.bindTooltip(
+                `<div>
+                     <b>Infront of visitors hostel</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_645ee2dafd2e24e69b8c08ba3499c15a.setIcon(icon_beb9d9d19ca6f7758e34223c8e443d4f);
+            
+    
+            var marker_c4ee2c96fbfe816a0b15193117051ed6 = L.marker(
+                [13.71248333333333, 79.59204666666666],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_6a4a62a4afb0620d789f822719841279 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d3a502dda521282e270fcacf113fd906 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3e723cadd9b2c45808fa9fb5d2e42c17 = $(`<div id="html_3e723cadd9b2c45808fa9fb5d2e42c17" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>On the way to directors bungalow</div><div style='font-size:13px;margin:6px 0'>Nik</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:43:49.163000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.712483, 79.592047</td></tr></table></div></div>`)[0];
+                popup_d3a502dda521282e270fcacf113fd906.setContent(html_3e723cadd9b2c45808fa9fb5d2e42c17);
+            
+        
+
+        marker_c4ee2c96fbfe816a0b15193117051ed6.bindPopup(popup_d3a502dda521282e270fcacf113fd906)
+        ;
+
+        
+    
+    
+            marker_c4ee2c96fbfe816a0b15193117051ed6.bindTooltip(
+                `<div>
+                     <b>On the way to directors bungalow</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c4ee2c96fbfe816a0b15193117051ed6.setIcon(icon_6a4a62a4afb0620d789f822719841279);
+            
+    
+            var marker_f4e112f68add34629c45fa1d2a482c62 = L.marker(
+                [13.714222799999998, 79.59006269999999],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_4acfa343f53e5d9e03953170c9af7f5b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d69cc6614c402300e70794b1cd53cc0d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f09ac0ff7920d078ed7f3feaacbe1df3 = $(`<div id="html_f09ac0ff7920d078ed7f3feaacbe1df3" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Near busstand</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:45:25.219000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.714223, 79.590063</td></tr></table></div></div>`)[0];
+                popup_d69cc6614c402300e70794b1cd53cc0d.setContent(html_f09ac0ff7920d078ed7f3feaacbe1df3);
+            
+        
+
+        marker_f4e112f68add34629c45fa1d2a482c62.bindPopup(popup_d69cc6614c402300e70794b1cd53cc0d)
+        ;
+
+        
+    
+    
+            marker_f4e112f68add34629c45fa1d2a482c62.bindTooltip(
+                `<div>
+                     <b>Near busstand</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f4e112f68add34629c45fa1d2a482c62.setIcon(icon_4acfa343f53e5d9e03953170c9af7f5b);
+            
+    
+            var marker_3d96bb9d8e7a3c5b29feddac0494fc78 = L.marker(
+                [13.714216666666667, 79.59011333333333],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_117e74c21315ba08058d93cb48512b0a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fbe608bdd456268c8afeec1d015551ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e597f36babd2769f6af851495582f28f = $(`<div id="html_e597f36babd2769f6af851495582f28f" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>Lhc to North hostel</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:46:10.918000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.714217, 79.590113</td></tr></table></div></div>`)[0];
+                popup_fbe608bdd456268c8afeec1d015551ab.setContent(html_e597f36babd2769f6af851495582f28f);
+            
+        
+
+        marker_3d96bb9d8e7a3c5b29feddac0494fc78.bindPopup(popup_fbe608bdd456268c8afeec1d015551ab)
+        ;
+
+        
+    
+    
+            marker_3d96bb9d8e7a3c5b29feddac0494fc78.bindTooltip(
+                `<div>
+                     <b>Lhc to North hostel</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3d96bb9d8e7a3c5b29feddac0494fc78.setIcon(icon_117e74c21315ba08058d93cb48512b0a);
+            
+    
+            var marker_329e35626e10785d8679058069159b75 = L.marker(
+                [13.714986666666668, 79.58925666666664],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_5fb972fd53a9b3cd9b4e77b303ba440a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a2c9338a0cf880ee812faae3dfbeb9a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6ef7b61b0d32c92440968a3b25061357 = $(`<div id="html_6ef7b61b0d32c92440968a3b25061357" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>On the way to ab1</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:46:57.983000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.714987, 79.589257</td></tr></table></div></div>`)[0];
+                popup_a2c9338a0cf880ee812faae3dfbeb9a8.setContent(html_6ef7b61b0d32c92440968a3b25061357);
+            
+        
+
+        marker_329e35626e10785d8679058069159b75.bindPopup(popup_a2c9338a0cf880ee812faae3dfbeb9a8)
+        ;
+
+        
+    
+    
+            marker_329e35626e10785d8679058069159b75.bindTooltip(
+                `<div>
+                     <b>On the way to ab1</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_329e35626e10785d8679058069159b75.setIcon(icon_5fb972fd53a9b3cd9b4e77b303ba440a);
+            
+    
+            var marker_4d36d917e5aa1ce4c0901af5c4e2998b = L.marker(
+                [13.715564999999998, 79.58858833333333],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_b90a3928f7caf58ed60a88b5c2483572 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ec1bcd00d3342bece5bbbd0c31135e5b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_867a53a6ddab1939d858e822bf7dbb6a = $(`<div id="html_867a53a6ddab1939d858e822bf7dbb6a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>On the way to lawn to tennis</div><div style='font-size:13px;margin:6px 0'>Nik</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:47:51.407000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.715565, 79.588588</td></tr></table></div></div>`)[0];
+                popup_ec1bcd00d3342bece5bbbd0c31135e5b.setContent(html_867a53a6ddab1939d858e822bf7dbb6a);
+            
+        
+
+        marker_4d36d917e5aa1ce4c0901af5c4e2998b.bindPopup(popup_ec1bcd00d3342bece5bbbd0c31135e5b)
+        ;
+
+        
+    
+    
+            marker_4d36d917e5aa1ce4c0901af5c4e2998b.bindTooltip(
+                `<div>
+                     <b>On the way to lawn to tennis</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4d36d917e5aa1ce4c0901af5c4e2998b.setIcon(icon_b90a3928f7caf58ed60a88b5c2483572);
+            
+    
+            var marker_ba56cc6376866828b6b363e11dbae287 = L.marker(
+                [13.716511666666664, 79.58850833333332],
+                {
+}
+            ).addTo(marker_cluster_9ca8191670d4efe3cb3c5fce662a3820);
+        
+    
+            var icon_58624d33cf99beed773e4855f083c552 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "trash",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_253b7cc3c5245b9359d0136aecbb1d43 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9916d119bbcf4b79c0523162c029344c = $(`<div id="html_9916d119bbcf4b79c0523162c029344c" style="width: 100.0%; height: 100.0%;"><div style='font-family:Segoe UI,Arial,sans-serif;width:250px'><div style='font-size:15px;font-weight:700;color:#d62839'>On the way to ab2</div><div style='font-size:13px;margin:6px 0'>Nil</div><table style='font-size:12px'><tr><td style='color:#666;padding:2px 8px 2px 0'>color</td><td>#377eb8</td></tr><tr><td style='color:#666;padding:2px 8px 2px 0'>timestamp</td><td>2026-09-04 11:48:46.734000+00:00</td></tr><tr><td style='color:#666;padding-right:8px'>Lat, Lon</td><td>13.716512, 79.588508</td></tr></table></div></div>`)[0];
+                popup_253b7cc3c5245b9359d0136aecbb1d43.setContent(html_9916d119bbcf4b79c0523162c029344c);
+            
+        
+
+        marker_ba56cc6376866828b6b363e11dbae287.bindPopup(popup_253b7cc3c5245b9359d0136aecbb1d43)
+        ;
+
+        
+    
+    
+            marker_ba56cc6376866828b6b363e11dbae287.bindTooltip(
+                `<div>
+                     <b>On the way to ab2</b>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ba56cc6376866828b6b363e11dbae287.setIcon(icon_58624d33cf99beed773e4855f083c552);
+            
+    
+            marker_cluster_9ca8191670d4efe3cb3c5fce662a3820.addTo(feature_group_5715dcb149436ada171fe2c334b08d20);
+        
+    
+            feature_group_5715dcb149436ada171fe2c334b08d20.addTo(map_806a668f43f299af77c8f7e8002ac070);
+        
+    
+            map_806a668f43f299af77c8f7e8002ac070.fitBounds(
+                [[13.706645, 79.58613666666666], [13.717986666666663, 79.594935]],
+                {"padding": [30, 30]}
+            );
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_806a668f43f299af77c8f7e8002ac070);
+        
+    
+            var tile_layer_ccfa1122ecbbb6b8d7d6f3be9ea8a8d3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_e22159461dd129066c60768dd8decbfe = new L.Control.MiniMap(
+                tile_layer_ccfa1122ecbbb6b8d7d6f3be9ea8a8d3,
+                {
+  "position": "bottomleft",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_806a668f43f299af77c8f7e8002ac070.addControl(mini_map_e22159461dd129066c60768dd8decbfe);
+        
+    
+            var measure_control_6befdf64f4593bbe8187c65b56e4fdac = new L.Control.Measure(
+                {
+  "position": "topright",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_806a668f43f299af77c8f7e8002ac070.addControl(measure_control_6befdf64f4593bbe8187c65b56e4fdac);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            var locate_control_e35ad98bea3db2fad017891c7853c2ad = L.control.locate(
+                {}
+            ).addTo(map_806a668f43f299af77c8f7e8002ac070);
+            
+        
+    
+            var mouse_position_c4a338ccedd536c5887905d936d19454 = new L.Control.MousePosition(
+                {
+  "position": "bottomright",
+  "separator": " : ",
+  "emptyString": "Unavailable",
+  "lngFirst": false,
+  "numDigits": 5,
+  "prefix": "",
+}
+            );
+            mouse_position_c4a338ccedd536c5887905d936d19454.options["latFormatter"] =
+                undefined;
+            mouse_position_c4a338ccedd536c5887905d936d19454.options["lngFormatter"] =
+                undefined;
+            map_806a668f43f299af77c8f7e8002ac070.addControl(mouse_position_c4a338ccedd536c5887905d936d19454);
+        
+    
+            var layer_control_4040198eb48adba9a01cacab3986d82e_layers = {
+                base_layers : {
+                    "OpenStreetMap" : tile_layer_5fe9f5261198040f74217db43a3e1941,
+                    "Light gray" : tile_layer_4a10c92e703b4239fd6b15e8b49af641,
+                    "Esri Satellite" : tile_layer_2624db781045de09f437cc40d22f589e,
+                },
+                overlays :  {
+                    "Waste bins (42)" : feature_group_5715dcb149436ada171fe2c334b08d20,
+                },
+            };
+            let layer_control_4040198eb48adba9a01cacab3986d82e = L.control.layers(
+                layer_control_4040198eb48adba9a01cacab3986d82e_layers.base_layers,
+                layer_control_4040198eb48adba9a01cacab3986d82e_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_806a668f43f299af77c8f7e8002ac070);
+
+        
+</script>
+</html>
