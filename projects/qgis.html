@@ -1,292 +1,188 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QGIS Projects | GIS & Spatial Analytics</title>
+<!-- ============================================ -->
+<!-- QGIS PROJECTS: VECTOR AND RASTER DATA -->
+<!-- ============================================ -->
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <style>
-        .qgis-page {
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 20px 24px 40px;
-        }
+<style>
+    .project-info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin: 25px 0;
+    }
 
-        .qgis-page h2 {
-            color: #0b2338;
-            margin-bottom: 24px;
-        }
+    .project-info-card {
+        min-width: 0;
+        padding: 24px;
+        background-color: #f4f8fb;
+        border: 1px solid #dbe6ee;
+        border-radius: 12px;
+        box-sizing: border-box;
+    }
 
-        .gis-hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 32px;
-            padding: 32px;
-            margin-bottom: 36px;
-            background: #0b2338;
-            color: #ffffff;
-            border-radius: 16px;
-            box-sizing: border-box;
-        }
+    .project-info-card h3 {
+        margin-top: 0;
+        color: #0b2338;
+        font-size: 22px;
+    }
 
-        .gis-hero-content h1 {
-            color: #ffffff;
-            font-size: 36px;
-            line-height: 1.2;
-            margin: 12px 0 18px;
-        }
+    .project-page-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 310px;
+        object-fit: contain;
+        border: 1px solid #dbe6ee;
+        border-radius: 10px;
+    }
 
-        .gis-hero-content .project-description {
-            color: #d5e2ee;
-            font-size: 16px;
-            line-height: 1.7;
-        }
+    .assignments-link-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
 
-        .section-label {
-            color: #299bff;
-            font-weight: 800;
-            letter-spacing: 4px;
-        }
+    .assignment-link {
+        display: inline-block;
+        color: #0b83e6;
+        font-size: 17px;
+        font-weight: 700;
+        text-decoration: none;
+    }
 
-        .gis-hero-content .section-label {
-            color: #62b6ff;
-        }
+    .assignment-link:hover {
+        color: #0b2338;
+        text-decoration: underline;
+    }
 
-        .gis-hero-visual {
-            min-width: 0;
-        }
-
-        .gis-hero-image {
-            display: block;
-            width: 100%;
-            max-height: 300px;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 10px;
-        }
-
+    @media (max-width: 700px) {
         .project-info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-            margin: 25px 0;
+            grid-template-columns: 1fr;
         }
+    }
+</style>
 
-        .project-info-card {
-            min-width: 0;
-            padding: 28px;
-            background-color: #f4f8fb;
-            border: 1px solid #dbe6ee;
-            border-radius: 16px;
-            box-sizing: border-box;
-        }
+<h2>QGIS Projects</h2>
 
-        .project-info-card h3 {
-            margin-top: 0;
-            color: #0b2338;
-            font-size: 24px;
-        }
+<div class="gis-hero">
 
-        .project-info-card p {
-            line-height: 1.6;
-        }
+    <div class="gis-hero-content">
+        <p class="section-label">GIS &amp; SPATIAL ANALYTICS</p>
 
-        .project-page-image {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-height: 310px;
-            object-fit: contain;
-            border: 1px solid #dbe6ee;
-            border-radius: 10px;
-            box-sizing: border-box;
-        }
+        <h1>Urban Informatics &amp; Spatial Analytics</h1>
 
-        .assignments-link-container {
-            display: flex;
-            justify-content: flex-end;
-            margin: 22px 0 32px;
-        }
+        <p class="project-description">
+            Exploring urban systems through geospatial data,
+            vector mapping, raster analysis and GIS-based
+            spatial analytics.
+        </p>
+    </div>
 
-        .assignment-link {
-            display: inline-block;
-            color: #0785f5;
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
-        }
+    <div class="gis-hero-visual">
+        <img
+            src="../images/gis-spatial-analytics.png"
+            alt="Urban spatial analytics map with road networks and geographic layers"
+            class="gis-hero-image"
+        >
+    </div>
 
-        .assignment-link:hover {
-            color: #0b2338;
-            text-decoration: underline;
-        }
+</div>
 
-        .project-info-card h4 {
-            margin-top: 26px;
-            color: #0b2338;
-            font-size: 19px;
-        }
+<div class="project-info-grid">
 
-        .project-info-card li {
-            margin-bottom: 5px;
-        }
+    <!-- VECTOR DATA PROJECT -->
+    <div class="project-info-card">
 
-        @media (max-width: 700px) {
-            .qgis-page {
-                padding: 16px 12px 28px;
-            }
+        <p class="section-label">PROJECT 01</p>
 
-            .gis-hero {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 22px;
-            }
+        <h3>Vector Data Analysis</h3>
 
-            .gis-hero-content h1 {
-                font-size: 29px;
-            }
+        <p>
+            Preparation, visualization and spatial analysis of
+            vector datasets using QGIS.
+        </p>
 
-            .project-info-grid {
-                grid-template-columns: 1fr;
-            }
+        <img
+            src="../images/qgis-vector.png"
+            alt="QGIS vector data map showing roads and spatial features"
+            class="project-page-image"
+        >
 
-            .project-info-card {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
+        <div class="assignments-link-container">
+            <a
+                href="projects/vector-assignments/waste-bin-mapping/index.html"
+                class="assignment-link"
+            >
+                View Assignments →
+            </a>
+        </div>
 
-<body>
-    <main class="qgis-page">
+        <h4>Data Types</h4>
+        <ul>
+            <li>Point features</li>
+            <li>Line features</li>
+            <li>Polygon features</li>
+        </ul>
 
-        <h2>QGIS Projects</h2>
+        <h4>Project Activities</h4>
+        <ul>
+            <li>Road network mapping</li>
+            <li>Establishment and POI mapping</li>
+            <li>Ward boundary analysis</li>
+            <li>Attribute tables and spatial joins</li>
+        </ul>
 
-        <section class="gis-hero">
-            <div class="gis-hero-content">
-                <p class="section-label">GIS &amp; SPATIAL ANALYTICS</p>
+        <p><strong>Tools:</strong> QGIS, OpenStreetMap, QuickOSM</p>
 
-                <h1>Urban Informatics &amp; Spatial Analytics</h1>
+    </div>
 
-                <p class="project-description">
-                    Exploring urban systems through geospatial data,
-                    vector mapping, raster analysis and GIS-based
-                    spatial analytics.
-                </p>
-            </div>
+    <!-- RASTER DATA PROJECT -->
+    <div class="project-info-card">
 
-            <div class="gis-hero-visual">
-                <img
-                    src="images/gis-spatial-analytics.png"
-                    alt="Urban spatial analytics map with road networks and geographic layers"
-                    class="gis-hero-image"
-                    onerror="this.onerror=null;this.src='../images/gis-spatial-analytics.png';"
-                >
-            </div>
-        </section>
+        <p class="section-label">PROJECT 02</p>
 
-        <section class="project-info-grid">
+        <h3>Raster Data Analysis</h3>
 
-            <!-- VECTOR DATA PROJECT -->
-            <article class="project-info-card">
-                <p class="section-label">PROJECT 01</p>
+        <p>
+            Exploration and processing of raster datasets for
+            geographic visualization and spatial analysis.
+        </p>
 
-                <h3>Vector Data Analysis</h3>
+        <img
+            src="../images/qgis-raster.png"
+            alt="Raster data and satellite imagery displayed in QGIS"
+            class="project-page-image"
+        >
 
-                <p>
-                    Preparation, visualization and spatial analysis of
-                    vector datasets using QGIS.
-                </p>
+        <div class="assignments-link-container">
+            <a
+                href="raster-assignments.html"
+                class="assignment-link"
+            >
+                View Assignments →
+            </a>
+        </div>
 
-                <img
-                    src="images/qgis-vector.png"
-                    alt="QGIS vector data map showing roads and spatial features"
-                    class="project-page-image"
-                    onerror="this.onerror=null;this.src='../images/qgis-vector.png';"
-                >
+        <h4>Data Types</h4>
+        <ul>
+            <li>Satellite imagery</li>
+            <li>Raster grid datasets</li>
+            <li>Digital elevation models (DEM), where available</li>
+        </ul>
 
-                <div class="assignments-link-container">
-                    <a
-                        href="projects/vector-assignments/waste-bin-mapping/index.html"
-                        class="assignment-link"
-                    >
-                        View Assignments →
-                    </a>
-                </div>
+        <h4>Project Activities</h4>
+        <ul>
+            <li>Loading and visualizing raster layers</li>
+            <li>Understanding raster resolution and cell values</li>
+            <li>Raster clipping and extraction</li>
+            <li>Raster-based analysis, where applicable</li>
+        </ul>
 
-                <h4>Data Types</h4>
-                <ul>
-                    <li>Point features</li>
-                    <li>Line features</li>
-                    <li>Polygon features</li>
-                </ul>
+        <p><strong>Tools:</strong> QGIS, Google Earth Pro</p>
 
-                <h4>Project Activities</h4>
-                <ul>
-                    <li>Road network mapping</li>
-                    <li>Establishment and POI mapping</li>
-                    <li>Ward boundary analysis</li>
-                    <li>Attribute tables and spatial joins</li>
-                </ul>
+    </div>
 
-                <p>
-                    <strong>Tools:</strong>
-                    QGIS, OpenStreetMap, QuickOSM
-                </p>
-            </article>
-
-            <!-- RASTER DATA PROJECT -->
-            <article class="project-info-card">
-                <p class="section-label">PROJECT 02</p>
-
-                <h3>Raster Data Analysis</h3>
-
-                <p>
-                    Exploration and processing of raster datasets for
-                    geographic visualization and spatial analysis.
-                </p>
-
-                <img
-                    src="images/qgis-raster.png"
-                    alt="Raster data and satellite imagery displayed in QGIS"
-                    class="project-page-image"
-                    onerror="this.onerror=null;this.src='../images/qgis-raster.png';"
-                >
-
-                <div class="assignments-link-container">
-                    <a
-                        href="raster-assignments.html"
-                        class="assignment-link"
-                    >
-                        View Assignments →
-                    </a>
-                </div>
-
-                <h4>Data Types</h4>
-                <ul>
-                    <li>Satellite imagery</li>
-                    <li>Raster grid datasets</li>
-                    <li>Digital elevation models (DEM), where available</li>
-                </ul>
-
-                <h4>Project Activities</h4>
-                <ul>
-                    <li>Loading and visualizing raster layers</li>
-                    <li>Understanding raster resolution and cell values</li>
-                    <li>Raster clipping and extraction</li>
-                    <li>Raster-based analysis, where applicable</li>
-                </ul>
-
-                <p>
-                    <strong>Tools:</strong> QGIS, Google Earth Pro
-                </p>
-            </article>
-
-        </section>
-    </main>
-</body>
-</html>
+</div>
