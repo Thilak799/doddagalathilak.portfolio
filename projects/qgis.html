@@ -4,37 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>QGIS Projects | Urban Informatics & Spatial Analytics</title>
-
-    <meta name="description"
-          content="QGIS vector mapping, raster analysis, and urban spatial analytics projects.">
+    <title>QGIS Projects | GIS & Spatial Analytics</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: #f5f7fa;
-            color: #243247;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.7;
-        }
-
-        .gis-page {
-            width: min(1200px, 94%);
+        .qgis-page {
+            max-width: 1250px;
             margin: 0 auto;
-            padding: 20px 0 50px;
+            padding: 20px 24px 40px;
         }
 
-        .page-title {
-            color: #102b46;
-            margin: 0 0 20px;
-            font-size: 28px;
+        .qgis-page h2 {
+            color: #0b2338;
+            margin-bottom: 24px;
         }
 
         .gis-hero {
@@ -42,16 +25,17 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 32px;
-            padding: 28px;
-            margin: 24px 0 36px;
+            padding: 32px;
+            margin-bottom: 36px;
             background: #0b2338;
             color: #ffffff;
             border-radius: 16px;
+            box-sizing: border-box;
         }
 
         .gis-hero-content h1 {
             color: #ffffff;
-            font-size: clamp(28px, 3.5vw, 40px);
+            font-size: 36px;
             line-height: 1.2;
             margin: 12px 0 18px;
         }
@@ -59,13 +43,13 @@
         .gis-hero-content .project-description {
             color: #d5e2ee;
             font-size: 16px;
+            line-height: 1.7;
         }
 
         .section-label {
-            color: #1689e8;
-            font-size: 12px;
+            color: #299bff;
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
         }
 
         .gis-hero-content .section-label {
@@ -79,70 +63,59 @@
         .gis-hero-image {
             display: block;
             width: 100%;
-            max-height: 320px;
+            max-height: 300px;
             object-fit: contain;
+            object-position: center;
             border-radius: 10px;
         }
 
         .project-info-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            align-items: stretch;
-            gap: 20px;
+            gap: 24px;
             margin: 25px 0;
         }
 
         .project-info-card {
             min-width: 0;
-            padding: 24px;
-            background: #ffffff;
+            padding: 28px;
+            background-color: #f4f8fb;
             border: 1px solid #dbe6ee;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(16, 43, 70, 0.05);
+            border-radius: 16px;
+            box-sizing: border-box;
         }
 
         .project-info-card h3 {
-            margin: 5px 0 12px;
-            color: #102b46;
-            font-size: 22px;
-            line-height: 1.35;
+            margin-top: 0;
+            color: #0b2338;
+            font-size: 24px;
         }
 
         .project-info-card p {
-            font-size: 15px;
-        }
-
-        .project-info-card h4 {
-            margin: 28px 0 10px;
-            color: #102b46;
-            font-size: 17px;
-        }
-
-        .project-info-card ul {
-            padding-left: 22px;
+            line-height: 1.6;
         }
 
         .project-page-image {
             display: block;
             width: 100%;
-            height: 250px;
+            height: auto;
+            max-height: 310px;
             object-fit: contain;
-            margin-top: 18px;
-            background: #f8fafc;
-            border: 1px solid #e0e6ed;
+            border: 1px solid #dbe6ee;
             border-radius: 10px;
+            box-sizing: border-box;
         }
 
         .assignments-link-container {
             display: flex;
             justify-content: flex-end;
-            margin: 18px 0 28px;
+            margin: 22px 0 32px;
         }
 
         .assignment-link {
             display: inline-block;
-            color: #0785ec;
-            font-size: 17px;
+            color: #0785f5;
+            font-size: 18px;
             font-weight: 700;
             text-decoration: none;
         }
@@ -152,18 +125,19 @@
             text-decoration: underline;
         }
 
-        .project-footer {
-            margin-top: 30px;
-            padding: 20px 0;
-            border-top: 1px solid #dce3ea;
-            color: #687789;
-            font-size: 13px;
-            text-align: center;
+        .project-info-card h4 {
+            margin-top: 26px;
+            color: #0b2338;
+            font-size: 19px;
+        }
+
+        .project-info-card li {
+            margin-bottom: 5px;
         }
 
         @media (max-width: 700px) {
-            .gis-page {
-                width: calc(100% - 24px);
+            .qgis-page {
+                padding: 16px 12px 28px;
             }
 
             .gis-hero {
@@ -172,8 +146,8 @@
                 padding: 22px;
             }
 
-            .gis-hero-image {
-                max-height: 240px;
+            .gis-hero-content h1 {
+                font-size: 29px;
             }
 
             .project-info-grid {
@@ -183,22 +157,16 @@
             .project-info-card {
                 padding: 20px;
             }
-
-            .project-page-image {
-                height: 210px;
-            }
         }
     </style>
 </head>
 
 <body>
+    <main class="qgis-page">
 
-    <main class="gis-page">
-
-        <h2 class="page-title">QGIS Projects</h2>
+        <h2>QGIS Projects</h2>
 
         <section class="gis-hero">
-
             <div class="gis-hero-content">
                 <p class="section-label">GIS &amp; SPATIAL ANALYTICS</p>
 
@@ -216,16 +184,15 @@
                     src="images/gis-spatial-analytics.png"
                     alt="Urban spatial analytics map with road networks and geographic layers"
                     class="gis-hero-image"
+                    onerror="this.onerror=null;this.src='../images/gis-spatial-analytics.png';"
                 >
             </div>
-
         </section>
 
         <section class="project-info-grid">
 
             <!-- VECTOR DATA PROJECT -->
             <article class="project-info-card">
-
                 <p class="section-label">PROJECT 01</p>
 
                 <h3>Vector Data Analysis</h3>
@@ -239,11 +206,12 @@
                     src="images/qgis-vector.png"
                     alt="QGIS vector data map showing roads and spatial features"
                     class="project-page-image"
+                    onerror="this.onerror=null;this.src='../images/qgis-vector.png';"
                 >
 
                 <div class="assignments-link-container">
                     <a
-                        href="projects/vector-assignments/waste-bin-mapping/"
+                        href="projects/vector-assignments/waste-bin-mapping/index.html"
                         class="assignment-link"
                     >
                         View Assignments →
@@ -265,13 +233,14 @@
                     <li>Attribute tables and spatial joins</li>
                 </ul>
 
-                <p><strong>Tools:</strong> QGIS, OpenStreetMap, QuickOSM</p>
-
+                <p>
+                    <strong>Tools:</strong>
+                    QGIS, OpenStreetMap, QuickOSM
+                </p>
             </article>
 
             <!-- RASTER DATA PROJECT -->
             <article class="project-info-card">
-
                 <p class="section-label">PROJECT 02</p>
 
                 <h3>Raster Data Analysis</h3>
@@ -285,6 +254,7 @@
                     src="images/qgis-raster.png"
                     alt="Raster data and satellite imagery displayed in QGIS"
                     class="project-page-image"
+                    onerror="this.onerror=null;this.src='../images/qgis-raster.png';"
                 >
 
                 <div class="assignments-link-container">
@@ -311,17 +281,12 @@
                     <li>Raster-based analysis, where applicable</li>
                 </ul>
 
-                <p><strong>Tools:</strong> QGIS, Google Earth Pro</p>
-
+                <p>
+                    <strong>Tools:</strong> QGIS, Google Earth Pro
+                </p>
             </article>
 
         </section>
-
-        <footer class="project-footer">
-            QGIS Projects · Urban Informatics &amp; Spatial Analytics
-        </footer>
-
     </main>
-
 </body>
 </html>
