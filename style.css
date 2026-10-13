@@ -907,3 +907,20 @@ body {
 .project-link:hover {
     color: #0b2338;
 }
+
+/* ================================================
+   QGIS PROJECT IMAGES
+   ================================================ */
+
+.project-info-card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    object-position: center;
+    background-color: #ffffff;
+    border: 1px solid #dbe6ee;
+    border-radius: 8px;
+    margin: 16px 0;
+    box-sizing: border-box;
+}
